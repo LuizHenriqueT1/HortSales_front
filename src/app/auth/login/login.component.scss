@@ -1,0 +1,25 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-login {
+    width: 350px;
+    background: #fff;
+    display: flex;
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 10px 5px 5px #d9d0d0;
+}
+
+.field {
+    width: 100%;
+}
+
+.button {
+    width: 100%;
+    margin-top: 1.5em;
+}

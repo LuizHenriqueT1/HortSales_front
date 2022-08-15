@@ -1,0 +1,20 @@
+<mat-toolbar style="background-color: #9ae5a4;">
+   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" mat-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Varejão da Economia</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button style="justify-content: space-between;" class="example-icon d-flex" aria-label="Example icon-button with share icon">
+   <mat-icon>logout</mat-icon>
+ </button>
+</mat-toolbar>
+
+
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p style="align-items: center; display: flex;"><mat-icon class="icon-sidebar">request_quote</mat-icon> Fazer Pedido</p>
+      <p style="align-items: center; display: flex;"><mat-icon class="icon-sidebar">attach_money</mat-icon>Valor do Dia</p>
+      <p style="align-items: center; display: flex;"><mat-icon class="icon-sidebar">leaderboard</mat-icon>Estatísticas</p>
+      <p style="align-items: center; display: flex;"><mat-icon class="icon-sidebar">group_add</mat-icon>Cadastrar Funcionario</p>
+    </mat-drawer>
+</mat-drawer-container>

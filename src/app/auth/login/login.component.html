@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="container-login">
+        <form [formGroup]="loginForm" >
+            <h2 style="display: flex; justify-content: center;">Login</h2>
+            <mat-form-field appearance="fill" class="field">
+                <mat-label>Entre com seu email</mat-label>
+                <input matInput placeholder="nome@email.com" formControlName="email" type="email" required>
+                <mat-error *ngIf="loginForm.get('email')?.errors?.['required']">Campo obrigatório</mat-error>
+                <mat-icon matPrefix>email</mat-icon>
+              </mat-form-field>
+              <mat-form-field appearance="fill" class="field">
+                <mat-label>Entre com sua senha</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" type="password" required>
+                <mat-error *ngIf="loginForm.get('password')?.errors?.['required']">Campo obrigatório</mat-error>
+                <mat-error *ngIf="loginForm.get('password')?.errors?.['minlength']">O mínimo são 8 caracteres</mat-error>
+                <mat-icon matPrefix>key</mat-icon>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+              <button mat-raised-button color="primary" class="button">Entrar</button>
+        </form>
+    </div>
+</div>
