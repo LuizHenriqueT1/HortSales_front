@@ -40,15 +40,15 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
         this.toast.success('Seja bem-vindo!');
       },
-      error: (err) => {
+      error: () => {
         this.toast.error('Email ou senha inválidos!');
         ref.close();
       }
     });
   }
-
+ 
   ngOnInit(): void {
     this.titleService.setTitle('Login');
   }
 
-}
+} 

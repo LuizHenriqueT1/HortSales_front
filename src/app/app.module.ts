@@ -1,3 +1,4 @@
+import { FuncionariosModule } from './funcionarios/funcionarios.module';
 import { HotToastModule } from '@ngneat/hot-toast';
 
 import { NgModule } from '@angular/core';
@@ -8,6 +9,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
+import { interceptors } from './core/interceptors/auth/auth.interceptor';
 
 @NgModule({
   declarations: [	
@@ -19,10 +21,11 @@ import { AuthModule } from './auth/auth.module';
     BrowserAnimationsModule,
     CoreModule,
     AuthModule,
+    FuncionariosModule,
     HttpClientModule,
-    HotToastModule.forRoot(),
+    HotToastModule
   ],
-  providers: [],
+  providers: [interceptors],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
