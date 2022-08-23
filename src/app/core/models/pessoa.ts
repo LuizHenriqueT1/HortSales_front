@@ -1,14 +1,14 @@
 export interface Pessoa {
     id?: number;
-    nome: string;
-    cpf: string;
-    email: string;
-    senha: string;
-    telefone: string;
-    endereco: string;
-    dataNascimento: string;
-    perfils: Perfil[] | string;
+    nome?: string;
+    email?: string;
+    cpf?: string;
+    senha?: string;
+    telefone?: string;
+    endereco?: string;
+    dataNascimento?: string;
     dataCriacao: string;
+    perfils: Perfil[] | string; 
 }
 
 export interface Funcionario extends Pessoa {}
