@@ -19,3 +19,17 @@ table {
   margin: 5vh;
 }
 
+.ctn-button-add {
+  display: flex;
+  margin-top: 2vh;
+  justify-content: end;
+}
+
+.button-add {
+  margin-right: 5vh;
+  position: fixed;
+}
+
+tr.mat-row:hover {
+  background-color: #f4ebeb;
+}
