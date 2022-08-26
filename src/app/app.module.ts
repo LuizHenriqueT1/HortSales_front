@@ -23,7 +23,7 @@ import { interceptors } from './core/interceptors/auth/auth.interceptor';
     AuthModule,
     FuncionariosModule,
     HttpClientModule,
-    HotToastModule
+    HotToastModule.forRoot(),
   ],
   providers: [interceptors],
   bootstrap: [AppComponent]

@@ -1,0 +1,15 @@
+<mat-card *ngIf="funcionario$ | async as pessoa">
+    <h2 style="display: flex; justify-content: center">Informaçoes do Funcionário</h2>
+    <ul class="list">
+        <li><strong>ID: </strong>{{ pessoa.id }}</li>
+        <li><strong>Nome: </strong>{{ pessoa.nome }}</li>
+        <li><strong>CPF: </strong>{{ pessoa.cpf }}</li>
+        <li><strong>Data de Nascimento: </strong>  {{ pessoa.dataNascimento }}</li>
+        <li><strong>E-mail: </strong>{{ pessoa.email }}</li>
+        <li><strong>Telefone: </strong>{{ pessoa.telefone }}</li>
+        <li><strong>Endereço: </strong>{{ pessoa.endereco }}</li>
+        <li><strong>Data de Criação: </strong>{{ pessoa.dataCriacao }}</li>
+    </ul>
+</mat-card>
+
+

@@ -1,1 +1,65 @@
-<p>alo</p>
+<div >
+  <form [formGroup]="funcionarioForm" class="container" (ngSubmit)="onSubmit()">
+    <h1 class="title">Cadastro de Funcionário</h1>
+
+    <section formArrayName="perfils">
+      <mat-checkbox color="primary" formControlName="0">Admin</mat-checkbox>
+      <mat-checkbox color="primary" formControlName="1">Funcionário</mat-checkbox>
+      <span class="mat-error" *ngIf="funcionarioForm.get('perfils')?.errors?.['sometrue']">
+        Marque uma função
+      </span>
+    </section>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Nome completo</mat-label>
+      <input matInput formControlName="nome" placeholder="Digite o nome" required/>
+      <mat-icon matSuffix>person</mat-icon>
+      <mat-error *ngIf="funcionarioForm.get('nome')?.errors?.['required']">Campo Obrigatório</mat-error>
+      <mat-error *ngIf="funcionarioForm.get('nome')?.errors?.['minlength']">O mínimo são 3 caracteres</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>E-mail</mat-label>
+      <input matInput formControlName="email" placeholder="Digite o e-mail" required/>
+      <mat-icon matSuffix>mail</mat-icon>
+      <mat-error *ngIf="funcionarioForm.get('email')?.errors?.['required']">Campo Obrigatório</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Senha</mat-label>
+      <input matInput placeholder="Digite a senha" formControlName="senha" required/>
+      <mat-icon matSuffix>key</mat-icon>
+      <mat-error *ngIf="funcionarioForm.get('senha')?.errors?.['required']">Campo Obrigatório</mat-error>
+      <mat-error *ngIf="funcionarioForm.get('senha')?.errors?.['minlength']">O mínimo são 8 caracteres</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>CPF</mat-label>
+      <input matInput mask="000.000.000-00" [dropSpecialCharacters]="false" placeholder="Digite o CPF" formControlName="cpf" required/>
+      <mat-icon matSuffix>badge</mat-icon>
+      <mat-error *ngIf="funcionarioForm.get('cpf')?.errors?.['required']">Campo Obrigatório</mat-error>
+      <mat-error *ngIf="funcionarioForm.get('cpf')?.errors?.['mask']">Formato de CPF inválido</mat-error>
+    </mat-form-field> 
+    <mat-form-field appearance="outline">
+      <mat-label>Telefone</mat-label>
+      <input matInput mask="(00)00000-0000 || 0000000-0000"  placeholder="Digite o Telefone" formControlName="telefone" required/>
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error *ngIf="funcionarioForm.get('telefone')?.errors?.['required']">Campo Obrigatório</mat-error>
+      <mat-error *ngIf="funcionarioForm.get('telefone')?.errors?.['maxlenght']">O maximo são 11 caracteres</mat-error>
+    </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Data de Nascimento</mat-label> 
+    <input matInput [matDatepicker]="dp" formControlName="dataNascimento" required>
+    <mat-error *ngIf="funcionarioForm.get('dataNascimento')?.errors?.['required']">Campo Obrigatório</mat-error>
+    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+    <mat-datepicker #dp></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Endereço</mat-label>
+    <input matInput placeholder="Digite o endereço" formControlName="endereco" required/>
+    <mat-icon matSuffix>signpost</mat-icon>
+    <mat-error *ngIf="funcionarioForm.get('endereco')?.errors?.['required']">Campo Obrigatório</mat-error>
+  </mat-form-field>
+
+
+  <button mat-raised-button color="primary" [disabled]="funcionarioForm.invalid">Criar</button>
+  </form>
+</div>
+ 
