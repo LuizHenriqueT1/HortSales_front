@@ -8,7 +8,7 @@ export interface Pessoa {
     endereco?: string;
     dataNascimento?: string;
     dataCriacao: string;
-    perfils: Perfil[] | string; 
+    perfils: Perfil[] | string[]; 
 }
 
 export interface Funcionario extends Pessoa {}

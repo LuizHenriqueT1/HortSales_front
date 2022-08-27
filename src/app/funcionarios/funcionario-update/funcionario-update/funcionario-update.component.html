@@ -1,1 +1,155 @@
-<p>funcionario-update works!</p>
+
+  <div>
+    <button
+      class="button-list"
+      mat-mini-fab
+      color="primary"
+      aria-label="Example icon button with a menu icon"
+      (click)="onClickList()"
+    >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+<div class="container">
+  <form
+    [formGroup]="funcionarioForm"
+    class="container-form"
+    (ngSubmit)="onSubmit()"
+  >
+    <h1 class="title">Editar Funcionário</h1>
+
+    <section formArrayName="perfils" class="perfils">
+      <mat-checkbox color="primary" formControlName="0">Admin</mat-checkbox>
+      <mat-checkbox color="primary" formControlName="1"
+        >Funcionário</mat-checkbox
+      >
+    </section>
+    <mat-error
+      class="mat-error"
+      *ngIf="funcionarioForm.get('perfils')?.errors?.['sometrue']"
+    >
+      Marque uma função
+    </mat-error>
+
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Nome completo</mat-label>
+      <input
+        matInput
+        formControlName="nome"
+        placeholder="Digite o nome"
+        required
+      />
+      <mat-icon matSuffix>person</mat-icon>
+      <mat-error *ngIf="funcionarioForm.get('nome')?.errors?.['required']"
+        >Campo Obrigatório</mat-error
+      >
+      <mat-error *ngIf="funcionarioForm.get('nome')?.errors?.['minlength']"
+        >O mínimo são 3 caracteres</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>E-mail</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        placeholder="Digite o e-mail"
+        required
+      />
+      <mat-icon matSuffix>mail</mat-icon>
+      <mat-error *ngIf="funcionarioForm.get('email')?.errors?.['required']"
+        >Campo Obrigatório</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Senha</mat-label>
+      <input
+        matInput [type]="hide ? 'password' : 'text'"
+        placeholder="Digite a senha"
+        formControlName="senha"
+        required
+      />
+      <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </span>
+      <mat-error *ngIf="funcionarioForm.get('senha')?.errors?.['required']"
+        >Campo Obrigatório</mat-error
+      >
+      <mat-error *ngIf="funcionarioForm.get('senha')?.errors?.['minlength']"
+        >O mínimo são 8 caracteres</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>CPF</mat-label>
+      <input
+        matInput
+        mask="000.000.000-00"
+        [dropSpecialCharacters]="false"
+        placeholder="Digite o CPF"
+        formControlName="cpf"
+        required
+      />
+      <mat-icon matSuffix>badge</mat-icon>
+      <mat-error *ngIf="funcionarioForm.get('cpf')?.errors?.['required']"
+        >Campo Obrigatório</mat-error
+      >
+      <mat-error *ngIf="funcionarioForm.get('cpf')?.errors?.['mask']"
+        >Formato de CPF inválido</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Telefone</mat-label>
+      <input
+        matInput
+        mask="(00)00000-0000"
+        placeholder="Digite o Telefone"
+        formControlName="telefone"
+        required
+      />
+      <mat-icon matSuffix>phone</mat-icon>
+      <mat-error *ngIf="funcionarioForm.get('telefone')?.errors?.['required']"
+        >Campo Obrigatório</mat-error
+      >
+      <mat-error *ngIf="funcionarioForm.get('telefone')?.errors?.['maxlenght']"
+        >O maximo são 11 caracteres</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Data de Nascimento</mat-label>
+      <input
+        matInput
+        mask="d0/M0/0000"
+        [dropSpecialCharacters]="false"
+        placeholder="Digite a Data de Nascimento"
+        formControlName="dataNascimento"
+        required
+      />
+      <mat-icon matSuffix>calendar_month</mat-icon>
+      <mat-error *ngIf="funcionarioForm.get('dataNascimento')?.errors?.['required']"
+        >Campo Obrigatório</mat-error
+      >
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="field">
+      <mat-label>Endereço</mat-label>
+      <input
+        matInput
+        placeholder="Digite o endereço"
+        formControlName="endereco"
+        required
+      />
+      <mat-icon matSuffix>signpost</mat-icon>
+      <mat-error *ngIf="funcionarioForm.get('endereco')?.errors?.['required']"
+        >Campo Obrigatório</mat-error
+      >
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="button"
+      [disabled]="funcionarioForm.invalid"
+    >
+      Editar
+    </button>
+  </form>
+</div>
+

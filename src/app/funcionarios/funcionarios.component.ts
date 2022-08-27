@@ -75,4 +75,12 @@ export class FuncionariosComponent implements OnInit {
     this.findAll();
   }
 
+  onClickHome() {
+    this.router.navigate(['/'])
+  }
+
+  onClickEditar() {
+    this.router.navigate(['/editar-funcionario/:id'])
+  }
+
 }

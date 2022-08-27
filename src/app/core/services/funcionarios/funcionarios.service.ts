@@ -28,7 +28,7 @@ export class FuncionariosService {
     return this.http.put<Funcionario>(`${this.funcionariosUrl}/${funcionario.id}`, funcionario);
   }
 
-  delete(id: number) {
+  delete(id: any) {
     return this.http.delete(`${this.funcionariosUrl}/${id}`);
   }
 }

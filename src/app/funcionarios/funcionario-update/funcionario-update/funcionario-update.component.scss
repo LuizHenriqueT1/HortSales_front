@@ -1,0 +1,34 @@
+.title {
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: -70px;
+}
+
+.container-form {
+    width: 400px;
+    padding: 5px;
+}
+
+.field {
+    width: 100%;
+}
+
+.button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.button-list {
+    margin-left: 2vw;
+    margin-top: 1vh;
+  }
+
+.perfils {
+    display: flex;
+    justify-content: space-between;
+}

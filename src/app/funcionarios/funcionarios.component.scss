@@ -15,14 +15,15 @@ table {
   display: flex;
   justify-content: center;
 }
-.container {
-  margin: 5vh;
-}
-
 .ctn-button-add {
   display: flex;
   margin-top: 2vh;
   justify-content: end;
+}
+
+.button-home {
+  margin-left: 2vw;
+  margin-top: 1vh;
 }
 
 .button-add {
