@@ -1,3 +1,4 @@
+import { LoaderComponent } from './loader/loader/loader.component';
 import { MaterialModule } from './material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -5,10 +6,15 @@ import { CommonModule } from '@angular/common';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    LoaderComponent
+  ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+  ],
+  exports: [
+    LoaderComponent
   ]
 })
 export class SharedModule { }

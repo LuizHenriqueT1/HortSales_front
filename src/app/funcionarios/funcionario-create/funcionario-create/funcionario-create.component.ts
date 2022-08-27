@@ -78,4 +78,8 @@ export class FuncionarioCreateComponent implements OnInit {
     })
   }
 
+  onClickList() {
+    this.router.navigate(['/funcionarios'])
+  }
+
 }

@@ -9,7 +9,7 @@ import { FuncionariosComponent } from './funcionarios.component';
 const routes: Routes = [
   { path: 'funcionarios', component: FuncionariosComponent },
   { path: 'create-funcionario', component: FuncionarioCreateComponent },
-  { path: 'editar/:id', component: FuncionarioUpdateComponent },
+  { path: 'editar-funcionario/:id', component: FuncionarioUpdateComponent },
   { path: 'detalhes/:id', component: FuncionarioDetailsComponent },
   { path: 'deletar/:id', component: FuncionarioDeleteComponent }
 ];
