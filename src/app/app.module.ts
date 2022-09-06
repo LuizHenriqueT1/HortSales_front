@@ -10,9 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { interceptors } from './core/interceptors/auth/auth.interceptor';
+import { CasherModule } from './casher/casher.module';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent
    ],
   imports: [
@@ -22,6 +23,7 @@ import { interceptors } from './core/interceptors/auth/auth.interceptor';
     CoreModule,
     AuthModule,
     FuncionariosModule,
+    CasherModule,
     HttpClientModule,
     HotToastModule.forRoot(),
   ],
