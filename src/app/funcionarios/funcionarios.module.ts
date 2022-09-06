@@ -32,8 +32,8 @@ import { NgxMaskModule } from 'ngx-mask';
     FormsModule,
     ReactiveFormsModule,
     CoreModule,
-    SharedModule, 
-    NgxMaskModule.forRoot() 
+    SharedModule,
+    NgxMaskModule.forRoot()
   ]
 })
 export class FuncionariosModule { }

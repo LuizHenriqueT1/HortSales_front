@@ -1,0 +1,64 @@
+<button
+class="button-home"
+mat-mini-fab
+color="primary"
+aria-label="Example icon button with a menu icon"
+(click)="onClickHome()"
+matTooltip="Voltar para Home"
+>
+<mat-icon>arrow_back</mat-icon>
+</button>
+<div class="container">
+  <mat-card class="card">
+    <div class="text">
+      <h2>Lucro do dia</h2>
+    </div>
+    <div>
+      <form [formGroup]="formCasher" (submit)="onSubmit()">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Valor inicial do dia</mat-label>
+          <input
+            matInput
+            placeholder="Digite o valor inicial do dia"
+            type="text" mask="separator.2" thousandSeparator=","
+            formControlName="valorInicial"
+          />
+          <mat-error *ngIf="formCasher.get('valorInicial')?.errors?.['required']">
+            Valor inicial é obrigatório
+          </mat-error>
+          <mat-icon matSuffix>attach_money</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Valor final do dia</mat-label>
+          <input
+            matInput
+            placeholder="Digite o valor final do dia"
+            type="text" mask="separator.2" thousandSeparator=","
+            formControlName="valorFinal"
+          />
+          <mat-error *ngIf="formCasher.get('valorFinal')?.errors?.['required']">
+            Valor final é obrigatório
+          </mat-error>
+          <mat-icon matSuffix>attach_money</mat-icon>
+        </mat-form-field>
+        <div>
+          <p>Lucro de hoje:</p>
+          <div class="mostrarLucro">
+
+            <h1 style="color: #19a800;">R$: {{showLucro}}</h1>
+          </div>
+
+        </div>
+        <div >
+          <button
+          [disabled]="formCasher.invalid"
+          mat-raised-button
+          color="primary"
+          class="button"
+          >Calcular e Salvar</button>
+        </div>
+
+      </form>
+    </div>
+  </mat-card>
+</div>
