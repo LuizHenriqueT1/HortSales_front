@@ -23,6 +23,7 @@
     "@auth0/angular-jwt": "^5.0.2",
     "@ngneat/hot-toast": "^4.1.0",
     "@ngneat/overview": "^3.0.0",
+    "apexcharts": "^3.35.5",
     "bootstrap": "^5.2.0",
     "ngx-mask": "^13.1.15",
     "rxjs": "~7.5.0",
