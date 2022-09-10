@@ -11,11 +11,12 @@ import { CoreModule } from './core/core.module';
 import { AuthModule } from './auth/auth.module';
 import { interceptors } from './core/interceptors/auth/auth.interceptor';
 import { CasherModule } from './casher/casher.module';
+import { ProfitListModule } from './profit-list/profit-list.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+
 
 @NgModule({
-  declarations: [
-    AppComponent
-   ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,10 +25,12 @@ import { CasherModule } from './casher/casher.module';
     AuthModule,
     FuncionariosModule,
     CasherModule,
+    ProfitListModule,
+    DashboardModule,
     HttpClientModule,
     HotToastModule.forRoot(),
   ],
   providers: [interceptors],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,13 +1,14 @@
 import { FuncionarioDeleteComponent } from './funcionario-delete/funcionario-delete/funcionario-delete.component';
 import { HotToastService } from '@ngneat/hot-toast';
 import { FuncionariosService } from './../core/services/funcionarios/funcionarios.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Funcionario } from '../core/models/pessoa';
 import { EMPTY, Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { FuncionarioDetailsComponent } from './funcionario-details/funcionario-details/funcionario-details.component';
 import { Router } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-funcionarios',
@@ -26,6 +27,7 @@ export class FuncionariosComponent implements OnInit {
   funcionarios$: Observable<Funcionario[]> = EMPTY;
   dataSources = new MatTableDataSource<Funcionario>();
   isLoading = true;
+
 
   displayedColumns: string[] = [
     'id',
