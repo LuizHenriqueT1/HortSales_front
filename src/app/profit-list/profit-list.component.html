@@ -1,4 +1,4 @@
-<div *ngIf="profitList$ | async as casherSources; else loading">
+<div >
   <div>
     <button
       class="button-home"
@@ -27,14 +27,14 @@
         />
       </mat-form-field>
     </div>
-    <table mat-table  [dataSource]="dataSources"matSort >
+    <table mat-table  [dataSource]="dataSources" matSort (matSortChange)="announceSortChange($event)" >
       <ng-container matColumnDef="dataDoValor">
-        <th mat-header-cell *matHeaderCellDef >Data</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by date">Data</th>
         <td mat-cell *matCellDef="let profit">{{ profit.dataDoValor }}</td>
         </ng-container
       >
       <ng-container matColumnDef="lucroDia">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header >Valor do lucro</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number" >Valor do lucro</th>
         <td mat-cell *matCellDef="let profit">R$: {{ profit.lucroDia }}</td>
         </ng-container
       >

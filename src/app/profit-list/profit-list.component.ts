@@ -1,11 +1,12 @@
 import { Casher } from './../core/models/casher';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort, SortDirection } from '@angular/material/sort';
+import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { EMPTY, merge, Observable, startWith, switchMap } from 'rxjs';
+import { EMPTY, Observable } from 'rxjs';
 import { CasherService } from '../core/services/casher/casher.service';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-profit-list',
@@ -14,14 +15,18 @@ import { CasherService } from '../core/services/casher/casher.service';
 })
 export class ProfitListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-
-  constructor(private casherService: CasherService, private router: Router) {}
+  constructor(
+    private casherService: CasherService,
+    private router: Router,
+    private _liveAnnouncer: LiveAnnouncer
+  ) {}
 
   profitList: Casher[] = [];
 
   profitList$: Observable<Casher[]> = EMPTY;
-  dataSources = new MatTableDataSource<Casher>(this.profitList);
+  dataSources = new MatTableDataSource<Casher>();
 
   displayedColumns: string[] = ['dataDoValor', 'lucroDia'];
 
@@ -42,10 +47,19 @@ export class ProfitListComponent implements OnInit {
 
   ngAfterViewInit() {
     this.dataSources.paginator = this.paginator;
+    this.dataSources.sort = this.sort;
   }
 
   ngOnInit(): void {
     this.profitList$ = this.casherService.findAll();
     this.findAll();
+  }
+
+  announceSortChange(sortState: Sort) {
+    if (sortState.direction) {
+      this._liveAnnouncer.announce(`Sorteado ${sortState.direction} com final ordenado`);
+    } else {
+      this._liveAnnouncer.announce('Sorteado sem ordenação');
+    }
   }
 }
