@@ -1,3 +1,4 @@
+import { StatisticsModule } from './statistics/statistics/statistics.module';
 import { FuncionariosModule } from './funcionarios/funcionarios.module';
 import { HotToastModule } from '@ngneat/hot-toast';
 
@@ -13,6 +14,7 @@ import { interceptors } from './core/interceptors/auth/auth.interceptor';
 import { CasherModule } from './casher/casher.module';
 import { ProfitListModule } from './profit-list/profit-list.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { StatisticsComponent } from './statistics/statistics/statistics.component';
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     FuncionariosModule,
     CasherModule,
     ProfitListModule,
+    StatisticsModule,
     DashboardModule,
     HttpClientModule,
     HotToastModule.forRoot(),
