@@ -1,0 +1,56 @@
+<body>
+  <header class="ctn-header">
+    <div>
+      <h4 style="color: #27EF8F">R$: {{ resultVendasUltimosSeteDias$ }}</h4>
+      <p style="color: #ABABAB">vendas nos últimos 7 dias</p>
+    </div>
+    <div>
+      <h4 style="color: #A630C3;">R$: {{ resultVendasUltimosTrintaDias$ }}</h4>
+      <p style="color: #ABABAB">vendas nos últimos 30 dias</p>
+    </div>
+    <div>
+      <h4 style="color: #27A7EF;">R$: {{ resultMediaDiariaMesAnterior$ }}</h4>
+      <p style="color: #ABABAB">média de vendas diárias no últimos mês</p>
+    </div>
+  </header>
+
+  <section class="ctn-section">
+    <div class="ctn-graphic">
+      <p>grafico</p>
+    </div>
+    <div class="ctn-form">
+      <form [formGroup]="mediaForm" (ngSubmit)="onSubmitMediaMes()">
+        <div class="ctn-calculate">
+          <mat-form-field appearance="outline" style="margin-right: 3px">
+            <mat-label>Mês da media</mat-label>
+            <input matInput formControlName="mes" type="number" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Ano da média</mat-label>
+            <input matInput formControlName="ano" type="number" />
+          </mat-form-field>
+        </div>
+        <p style="color: #ABABAB;">Valor da média De Lucros: R${{ findMediaLucroMes$ }}</p>
+        <button mat-raised-button color="primary" class="button-calculate">
+          <mat-icon>search</mat-icon>
+        </button>
+      </form>
+      <form [formGroup]="somaLucroMesForm" (ngSubmit)="onSubmitSomaLucroMes()">
+        <div class="ctn-calculate">
+          <mat-form-field appearance="outline" style="margin-right: 3px">
+            <mat-label>Mês da soma</mat-label>
+            <input matInput formControlName="mes" type="number" />
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Ano da soma</mat-label>
+            <input matInput formControlName="ano" type="number" />
+          </mat-form-field>
+        </div>
+        <p style="color: #ABABAB;">Valor total De Lucros: R${{ findSomaLucroMes$ }}</p>
+        <button mat-raised-button color="primary" class="button-calculate">
+          <mat-icon>search</mat-icon>
+        </button>
+      </form>
+    </div>
+  </section>
+</body>

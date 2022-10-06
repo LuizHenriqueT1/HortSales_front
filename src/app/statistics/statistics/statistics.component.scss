@@ -1,0 +1,42 @@
+body {
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+.ctn-header {
+  background-color: #FFF;
+  height: 12vh;
+  margin-top: 5vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+.ctn-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.ctn-graphic {
+  background-color: #FFF;
+  height: 43vh;
+  margin-top: 3vh;
+  margin-right: 1vw;
+}
+
+.ctn-form {
+  background-color: #FFF;
+  margin-top: 3vh;
+  padding: 14px;
+  box-sizing: border-box;
+}
+
+.ctn-calculate {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-calculate {
+  width: 100%;
+  margin-bottom: 5px;
+}
