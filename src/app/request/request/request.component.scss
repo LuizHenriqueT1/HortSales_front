@@ -1,0 +1,33 @@
+.table {
+  width: 80vw;
+}
+.buttons {
+  width: 80vw;
+}
+
+.container {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 3vh;
+}
+
+.button-home {
+  margin-left: 2vw;
+  margin-top: 1vh;
+}
+
+.btn-confirm {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+@media screen and (max-width: 1072px) {
+  .container {
+    margin-left: 1vw;
+    margin-right: 1vw;
+  }
+  .table {
+    width: 98vw;
+  }
+}
