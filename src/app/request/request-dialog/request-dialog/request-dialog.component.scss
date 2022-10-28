@@ -1,0 +1,14 @@
+.text {
+  display: flex;
+  justify-content: center;
+}
+.form {
+  width: 25vw;
+  display: grid;
+}
+
+@media screen and (max-width: 1072px) {
+  .form {
+    width: 70vw;
+  }
+}

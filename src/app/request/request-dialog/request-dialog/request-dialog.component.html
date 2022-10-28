@@ -1,0 +1,48 @@
+<h1 mat-dialog-title class="text">Adicionar Produto</h1>
+<form [formGroup]="requestForm" class="form" >
+  <mat-form-field appearance="outline">
+    <mat-label>Nome do Produto</mat-label>
+    <input matInput formControlName="produto">
+    <mat-error *ngIf="requestForm.get('produto')?.errors?.['required']">
+      Campo Obrigatório
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Quantidade</mat-label>
+    <input matInput formControlName="quantidade" type="number"   >
+    <mat-error *ngIf="requestForm.get('quantidade')?.errors?.['required']">
+      Campo Obrigatório
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Unidade de Medida</mat-label>
+    <mat-select formControlName="unidadeMedida">
+      <mat-option value="caixa">Caixa</mat-option>
+      <mat-option value="unidade">Unidade</mat-option>
+      <mat-option value="kilo">Kilo</mat-option>
+    </mat-select>
+    <mat-error *ngIf="requestForm.get('unidadeMedida')?.errors?.['required']">
+      Campo Obrigatório
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Condição</mat-label>
+    <mat-select formControlName="condicaoProduto">
+      <mat-option value="verde">Verde</mat-option>
+      <mat-option value="normal">Normal</mat-option>
+      <mat-option value="maduro">Maduro</mat-option>
+    </mat-select>
+    <mat-error *ngIf="requestForm.get('condicao')?.errors?.['required']">
+      Campo Obrigatório
+    </mat-error>
+  </mat-form-field>
+
+</form>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Fechar</button>
+  <button mat-button color="primary" (click)="pegarValor()" [disabled]="requestForm.invalid">Adicionar</button>
+</div>
+
