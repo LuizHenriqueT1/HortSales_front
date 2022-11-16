@@ -14,7 +14,8 @@ import { AuthModule } from './auth/auth.module';
 import { interceptors } from './core/interceptors/auth/auth.interceptor';
 import { CasherModule } from './casher/casher.module';
 import { ProfitListModule } from './profit-list/profit-list.module';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { AuthService } from './core/services/auth/auth.service';
+import { AuthGuardGuard } from './shared/guard/auth.guard';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,11 +30,10 @@ import { DashboardModule } from './dashboard/dashboard.module';
     ProfitListModule,
     StatisticsModule,
     RequestModule,
-    DashboardModule,
     HttpClientModule,
     HotToastModule.forRoot(),
   ],
-  providers: [interceptors],
+  providers: [interceptors, AuthService, AuthGuardGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

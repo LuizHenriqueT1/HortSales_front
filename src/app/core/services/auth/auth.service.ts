@@ -43,7 +43,6 @@ export class AuthService {
       this.emailUser = decoded.sub;
       return !this.jwt.isTokenExpired(token);
     }
-
     return false;
   }
 
@@ -53,9 +52,15 @@ export class AuthService {
     if (token !== null){
       return this.jwt.getTokenExpirationDate(token);
     }
-
     return null;
-    
+  }
+
+  logout() {
+    let token = localStorage.getItem('token');
+
+    if (token !== null) {
+      localStorage.removeItem('token');
+    }
   }
 
   onLogin(token: string) {
