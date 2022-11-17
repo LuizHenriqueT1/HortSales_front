@@ -35,15 +35,19 @@ export class CasherService {
     return this.http.get<MesEAno>(`${this.casherUrl}/lucro?mes=${mes}&ano=${ano}`);
   }
 
-  findVendasUltimosSeteDias(): Observable<Number> {
-    return this.http.get<Number>(`${this.casherUrl}/lucros-semana`);
+  findVendasUltimosSeteDias(): Observable<number> {
+    return this.http.get<number>(`${this.casherUrl}/lucros-semana`);
   }
 
-  findVendasUltimosTrintaDias(): Observable<Number> {
-    return this.http.get<Number>(`${this.casherUrl}/lucros-ultimo-mes`);
+  findVendasUltimosTrintaDias(): Observable<number> {
+    return this.http.get<number>(`${this.casherUrl}/lucros-ultimo-mes`);
   }
 
-  findMediaDiariaMesAnterior(): Observable<Number> {
-    return this.http.get<Number>(`${this.casherUrl}/media-diaria-mes-anterior`);
+  findMediaDiariaMesAnterior(): Observable<number> {
+    return this.http.get<number>(`${this.casherUrl}/media-diaria-mes-anterior`);
+  }
+
+  findVendasUltimosDozeMeses(): Observable<number> {
+    return this.http.get<number>(`${this.casherUrl}/totalVendasMes-ultimos-doseMeses`)
   }
 }
