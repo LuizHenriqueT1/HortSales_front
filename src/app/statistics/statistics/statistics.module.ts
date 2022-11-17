@@ -6,11 +6,14 @@ import { CommonModule } from '@angular/common';
 import { StatisticsRoutingModule } from './statistics-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/shared/material.module';
+import { NgChartsModule } from 'ng2-charts';
+import { DashboardComponent } from '../dashboard/dashboard.component';
 
 
 @NgModule({
   declarations: [
-    StatisticsComponent
+    StatisticsComponent,
+    DashboardComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +21,8 @@ import { MaterialModule } from 'src/app/shared/material.module';
     SharedModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgChartsModule
   ]
 })
 export class StatisticsModule { }

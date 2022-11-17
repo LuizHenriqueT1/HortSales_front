@@ -2,6 +2,12 @@ body {
   margin-left: 10vw;
   margin-right: 10vw;
 }
+
+.button-home {
+  margin-left: 2vw;
+  margin-top: 1vh;
+}
+
 .ctn-header {
   background-color: #FFF;
   height: 12vh;
@@ -19,7 +25,8 @@ body {
 
 .ctn-graphic {
   background-color: #FFF;
-  height: 43vh;
+  position: relative;
+
   margin-top: 3vh;
   margin-right: 1vw;
 }
