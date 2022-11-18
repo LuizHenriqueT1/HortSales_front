@@ -1,75 +1,87 @@
-<div>
-  <button
-    class="button-home"
-    mat-mini-fab
-    color="primary"
-    aria-label="Example icon button with a menu icon"
-    (click)="onClickHome()"
-    matTooltip="Voltar para Home"
-  >
-    <mat-icon>arrow_back</mat-icon>
-  </button>
-</div>
-<div class="container">
-  <h1>Lista de Pedidos</h1>
-  <div class="demo-button-container buttons">
-    <button mat-raised-button (click)="openDialog()" class="demo-button">
-      Adicionar
+<body>
+  <div>
+    <button
+      class="button-home"
+      mat-mini-fab
+      color="primary"
+      aria-label="Example icon button with a menu icon"
+      (click)="onClickHome()"
+      matTooltip="Voltar para Home"
+    >
+      <mat-icon>arrow_back</mat-icon>
     </button>
   </div>
 
-  <table
-    mat-table
-    [dataSource]="dataSource"
-    class="mat-elevation-z8 demo-table table"
-  >
-    <ng-container matColumnDef="itens">
-      <th mat-header-cell *matHeaderCellDef>Item</th>
-      <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
-    </ng-container>
+  <div class="container">
+    <h1 class="title">Lista de Pedidos</h1>
+    <div class="ctn-buttonAdd">
+      <button
+        class="buttonAdd"
+        mat-fab
+        (click)="openDialog()"
+        matTooltip="Adicionar Produto"
+        color="#01010"
+      >
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+    </div>
 
-    <ng-container matColumnDef="produto">
-      <th mat-header-cell *matHeaderCellDef>Produto</th>
-      <td mat-cell *matCellDef="let element">{{ element.produto }}</td>
-    </ng-container>
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      class="mat-elevation-z8 demo-table table"
+    >
+      <ng-container matColumnDef="itens">
+        <th mat-header-cell *matHeaderCellDef>Item</th>
+        <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="quantidade">
-      <th mat-header-cell *matHeaderCellDef>Quantidade</th>
-      <td mat-cell *matCellDef="let element">{{ element.quantidade }}</td>
-    </ng-container>
+      <ng-container matColumnDef="produto">
+        <th mat-header-cell *matHeaderCellDef>Produto</th>
+        <td mat-cell *matCellDef="let element">{{ element.produto }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="unidadeMedida">
-      <th mat-header-cell *matHeaderCellDef>Unidade de Medida</th>
-      <td mat-cell *matCellDef="let element">{{ element.unidadeMedida }}</td>
-    </ng-container>
+      <ng-container matColumnDef="quantidade">
+        <th mat-header-cell *matHeaderCellDef>Quantidade</th>
+        <td mat-cell *matCellDef="let element">{{ element.quantidade }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="condicaoProduto">
-      <th mat-header-cell *matHeaderCellDef>Condição</th>
-      <td mat-cell *matCellDef="let element">{{ element.condicaoProduto }}</td>
-    </ng-container>
+      <ng-container matColumnDef="unidadeMedida">
+        <th mat-header-cell *matHeaderCellDef>Unidade de Medida</th>
+        <td mat-cell *matCellDef="let element">{{ element.unidadeMedida }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="remover">
-      <th mat-header-cell *matHeaderCellDef>Remover</th>
-      <td mat-cell *matCellDef="let element">
-        <button
-          mat-icon-button
-          (click)="removeItem(element)"
-          matTooltip="Deletar produto"
-        >
-          <mat-icon>delete</mat-icon>
-        </button>
-      </td>
-    </ng-container>
+      <ng-container matColumnDef="condicaoProduto">
+        <th mat-header-cell *matHeaderCellDef>Condição</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.condicaoProduto }}
+        </td>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-  <button
-    mat-raised-button
-    color="primary"
-    (click)="confirmRequest()"
-    class="btn-confirm"
-  >
-    Confirmar Pedido
-  </button>
-</div>
+      <ng-container matColumnDef="remover">
+        <th mat-header-cell *matHeaderCellDef>Remover</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-icon-button
+            (click)="removeItem(element)"
+            matTooltip="Deletar produto"
+            color="warn"
+          >
+            <mat-icon color="#ed0000">delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      <tr
+        style="background-color: #ff8239"
+        mat-header-row
+        *matHeaderRowDef="displayedColumns"
+      ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <div class="btn-confirm" *ngIf="listaVazia == false">
+      <button mat-raised-button color="primary" (click)="confirmRequest()">
+        Confirmar Pedido
+      </button>
+    </div>
+  </div>
+</body>
