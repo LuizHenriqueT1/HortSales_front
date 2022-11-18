@@ -7,6 +7,10 @@
   display: grid;
 }
 
+.ctn-button {
+  justify-content: space-between;
+}
+
 @media screen and (max-width: 1072px) {
   .form {
     width: 70vw;

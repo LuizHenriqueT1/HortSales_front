@@ -1,8 +1,38 @@
+body {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+}
+
 .table {
   width: 80vw;
 }
-.buttons {
-  width: 80vw;
+
+.title {
+  text-align: center;
+  color: #140101;
+  text-shadow: 0px 4px 4px rgba(247, 132, 0, 0.19);
+}
+
+.ctn-buttonAdd {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 0.6vh;
+}
+
+.buttonAdd {
+  background-color: #8fd694;
+}
+
+.mat-fab:not([class*="mat-elevation-z"]),
+.mat-mini-fab:not([class*="mat-elevation-z"]) {
+  box-shadow: none;
+}
+
+.mat-header-cell {
+  color: #fff;
+  font-size: 14px;
+  padding: 2px;
 }
 
 .container {
@@ -19,8 +49,8 @@
 .btn-confirm {
   display: flex;
   justify-content: flex-end;
+  margin-top: 2vh;
 }
-
 
 @media screen and (max-width: 1072px) {
   .container {
@@ -29,5 +59,8 @@
   }
   .table {
     width: 98vw;
+  }
+  .btn-confirm {
+    margin-top: 1vh;
   }
 }

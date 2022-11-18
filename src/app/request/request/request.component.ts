@@ -45,11 +45,16 @@ export class RequestComponent implements OnInit, DoCheck {
     this.dialog.open(RequestDialogComponent);
   }
 
+  listaVazia: boolean = true;
+
   //SE HOUVER MUDANÇA NO ARRAY DO SERVICE, ATUALIZA A TABELA
   ngDoCheck() {
     this.dataSource = new MatTableDataSource<Request>(
       this.requestService.arrayRequest
     );
+    if (this.requestService.arrayRequest.length > 0) {
+      this.listaVazia = false;
+    }
     this.changeDetectorRef.detectChanges();
   }
 
