@@ -47,13 +47,15 @@ export class RequestComponent implements OnInit, DoCheck {
 
   listaVazia: boolean = true;
 
-  //SE HOUVER MUDANÇA NO ARRAY DO SERVICE, ATUALIZA A TABELA
+  //SE HOUVER MUDANÇA NO ARRAY DO SERVICE, ATUALIZA A TABELA /  SOME O BOTÃO
   ngDoCheck() {
     this.dataSource = new MatTableDataSource<Request>(
       this.requestService.arrayRequest
     );
-    if (this.requestService.arrayRequest.length > 0) {
-      this.listaVazia = false;
+    if (this.requestService.arrayRequest.length === 0) {
+      this.listaVazia = true;
+    } else {
+      this.listaVazia =  false
     }
     this.changeDetectorRef.detectChanges();
   }

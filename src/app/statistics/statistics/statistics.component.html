@@ -9,29 +9,37 @@ matTooltip="Voltar para Home"
 <mat-icon>arrow_back</mat-icon>
 </button>
 <body>
+  <h1 class="title">Estatísticas</h1>
   <header class="ctn-header">
     <div>
-      <h4 style="color: #00532b">R$: {{ resultVendasUltimosSeteDias$ }}</h4>
+      <h4 style="color: #00532b; display: flex;">R$: {{ resultVendasUltimosSeteDias$ }}
+        <mat-icon>trending_up</mat-icon>
+      </h4>
       <p style="color: #ABABAB">vendas nos últimos 7 dias</p>
     </div>
     <div>
-      <h4 style="color: #A630C3;">R$: {{ resultVendasUltimosTrintaDias$ }}</h4>
+      <h4 style="color: #A630C3; display: flex;">R$: {{ resultVendasUltimosTrintaDias$ }}
+        <mat-icon>trending_up</mat-icon>
+      </h4>
       <p style="color: #ABABAB">vendas nos últimos 30 dias</p>
     </div>
     <div>
-      <h4 style="color: #27A7EF;">R$: {{ resultMediaDiariaMesAnterior$ }}</h4>
-      <p style="color: #ABABAB">média de vendas diárias no últimos mês</p>
+      <h4 style="color: #27A7EF; display: flex;">R$: {{ resultMediaDiariaMesAnterior$ }}
+        <mat-icon>trending_up</mat-icon>
+      </h4>
+      <p style="color: #ABABAB">média de vendas diárias no último mês</p>
     </div>
   </header>
 
   <section class="ctn-section">
     <div class="ctn-graphic">
-      <app-dashboard
+      <app-dashboard class="canvas"
       [dados]="chart()"
       ></app-dashboard>
     </div>
     <div class="ctn-form">
-      <form [formGroup]="mediaForm" (ngSubmit)="onSubmitMediaMes()">
+      <form [formGroup]="mediaForm" (ngSubmit)="onSubmitMediaMes()" class="form">
+        <h3 class="title-form">Pesquisar média de lucros</h3>
         <div class="ctn-calculate">
           <mat-form-field appearance="outline" style="margin-right: 3px">
             <mat-label>Mês da media</mat-label>
@@ -42,12 +50,13 @@ matTooltip="Voltar para Home"
             <input matInput formControlName="ano" type="number" />
           </mat-form-field>
         </div>
-        <p style="color: #ABABAB;">Valor da média De Lucros: R${{ findMediaLucroMes$ }}</p>
+        <p *ngIf="findMediaLucroMes$ !null" style="color: #020500;">Valor da média de lucros R$: {{ findMediaLucroMes$ }}</p>
         <button mat-raised-button color="primary" class="button-calculate">
           <mat-icon>search</mat-icon>
         </button>
       </form>
-      <form [formGroup]="somaLucroMesForm" (ngSubmit)="onSubmitSomaLucroMes()">
+      <form [formGroup]="somaLucroMesForm" (ngSubmit)="onSubmitSomaLucroMes()" class="form">
+        <h3 class="title-form">Pesquisar total de lucros</h3>
         <div class="ctn-calculate">
           <mat-form-field appearance="outline" style="margin-right: 3px">
             <mat-label>Mês da soma</mat-label>
@@ -58,10 +67,11 @@ matTooltip="Voltar para Home"
             <input matInput formControlName="ano" type="number" />
           </mat-form-field>
         </div>
-        <p style="color: #ABABAB;">Valor total De Lucros: R${{ findSomaLucroMes$ }}</p>
+        <p *ngIf="findSomaLucroMes$ !null" style="color: #020500;">Valor de lucros R$: {{ findSomaLucroMes$ }}</p>
         <button mat-raised-button color="primary" class="button-calculate">
           <mat-icon>search</mat-icon>
         </button>
+
       </form>
     </div>
   </section>
