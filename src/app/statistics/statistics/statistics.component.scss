@@ -57,6 +57,11 @@ body {
   margin-bottom: 5px;
 }
 
+.header-values {
+  display: flex;
+  justify-content: center;
+}
+
 @media (max-width: 1558px) {
   body {
     margin-left: 5vw;
@@ -133,6 +138,7 @@ body {
 @media (max-width: 380px) {
   .ctn-header {
     height: 20vh;
+    padding: 2px;
   }
 }
 

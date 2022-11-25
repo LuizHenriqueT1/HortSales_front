@@ -1,16 +1,17 @@
+<div>
+  <button
+    class="button-home"
+    mat-mini-fab
+    color="primary"
+    aria-label="Example icon button with a menu icon"
+    (click)="onClickHome()"
+    matTooltip="Voltar para Home"
+  >
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+</div>
+
 <div *ngIf="funcionarios$ | async as dataSource; else loading">
-  <div>
-    <button
-      class="button-home"
-      mat-mini-fab
-      color="primary"
-      aria-label="Example icon button with a menu icon"
-      (click)="onClickHome()"
-      matTooltip="Voltar para Home"
-    >
-      <mat-icon>arrow_back</mat-icon>
-    </button>
-  </div>
   <div class="mat-elevation-z8 container">
     <div class="container-title">
       <h1 class="title">Lista de Funcionários</h1>
@@ -22,11 +23,12 @@
           style="margin-left: 10px"
           matInput
           (keyup)="applyFilter($event)"
-          placeholder="Nome"
+          placeholder="Nome do funcionário"
           #input
         />
       </mat-form-field>
     </div>
+    <section class="example-container mat-elevation-z8" tabindex="0">
     <table mat-table [dataSource]="dataSources">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>#ID</th>
@@ -77,7 +79,7 @@
           {{ funcionario.acoes }}
           <a
             mat-icon-button
-            color="primary"
+            style="color: #de6c14"
             routerLink="/editar-funcionario/{{ funcionario.id }}"
             matTooltip="Editar funcioario"
           >
@@ -94,7 +96,7 @@
           </a>
           <a
             mat-icon-button
-            color="basic"
+            style="color: #1465de;"
             matTooltip="Informações do funcionario"
             routerLink="detalhe/{{ funcionario.id }}"
             (click)="onClickDetails(funcionario)"
@@ -109,6 +111,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+  </section>
     <div class="example-button-row ctn-button-add">
       <a
         routerLink="criar"

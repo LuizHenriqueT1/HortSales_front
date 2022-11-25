@@ -10,6 +10,7 @@ table {
 .button-home {
   margin-left: 2vw;
   margin-top: 1vh;
+  margin-bottom: 2vh;
 }
 
 .title {
@@ -19,4 +20,26 @@ table {
 .container-title {
   display: flex;
   justify-content: center;
+}
+
+
+body {
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.container{
+  background-color: #fff;
+}
+
+.paginator {
+  background-color: rgb(255, 254, 254);
+  color: #000;
+}
+
+@media  (max-width: 800px) {
+  body {
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
 }

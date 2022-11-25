@@ -33,7 +33,7 @@ matTooltip="Voltar para Home"
           <input
             matInput
             placeholder="Digite o valor final do dia"
-            type="text" mask="separator.2" thousandSeparator=","
+            type="text" mask="separator.2 " thousandSeparator=","
             formControlName="valorFinal"
           />
           <mat-error *ngIf="formCasher.get('valorFinal')?.errors?.['required']">
@@ -45,7 +45,7 @@ matTooltip="Voltar para Home"
           <p>Lucro de hoje:</p>
           <div class="mostrarLucro">
 
-            <h1 style="color: #19a800;">R$: {{showLucro}}</h1>
+            <h1 style="color: #19a800;">R$: {{showLucroDisplay()}}</h1>
           </div>
 
         </div>

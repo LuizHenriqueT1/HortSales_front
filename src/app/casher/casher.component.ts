@@ -75,5 +75,10 @@ export class CasherComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  showLucroDisplay() {
+    let lucro = this.showLucro.toFixed(2);
+            return lucro.replace('.', ',');
+  }
+
   ngOnInit(): void {}
 }

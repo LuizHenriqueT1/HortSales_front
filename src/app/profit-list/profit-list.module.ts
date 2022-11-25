@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { ProfitListRoutingModule } from './profit-list-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfitListComponent } from './profit-list.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ProfitListComponent } from './profit-list.component';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxMaskModule
   ]
 })
 export class ProfitListModule { }
