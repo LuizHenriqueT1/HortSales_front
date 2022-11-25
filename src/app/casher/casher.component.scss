@@ -26,3 +26,10 @@
   margin-left: 2vw;
   margin-top: 1vh;
 }
+
+@media (max-width: 464px) {
+  .container {
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+}

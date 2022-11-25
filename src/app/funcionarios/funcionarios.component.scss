@@ -2,6 +2,12 @@ table {
   width: 100%;
 }
 
+.container {
+  background-color: #fff;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
 .mat-form-field {
   font-size: 14px;
   width: 100%;
@@ -24,13 +30,26 @@ table {
 .button-home {
   margin-left: 2vw;
   margin-top: 1vh;
+  margin-bottom: 2vh;
 }
 
 .button-add {
-  margin-right: 5vh;
   position: fixed;
+  margin-top: 2vh;
 }
 
 tr.mat-row:hover {
-  background-color: #f4ebeb;
+  background-color: #dfdede;
+}
+
+@media (max-width: 1113px) {
+  .example-container {
+    min-height: 300px;
+    max-width: 100%;
+    overflow: auto;
+  }
+  .container {
+    margin-left: 1vw;
+    margin-right: 1vw;
+  }
 }

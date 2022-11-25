@@ -77,6 +77,9 @@
       ></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+    <tbody *ngIf="listaVazia == true">
+        <p style="font-size: 15px;">Adicione algum produto para fazer o pedido!</p>
+    </tbody>
     <div class="btn-confirm" *ngIf="listaVazia == false">
       <button mat-raised-button color="primary" (click)="confirmRequest()">
         Confirmar Pedido
