@@ -14,7 +14,7 @@ body {
 }
 
 .ctn-header {
-  background-color: #FFF;
+  background-color: #fff;
   height: 12vh;
   margin-top: 5vh;
   display: flex;
@@ -29,7 +29,7 @@ body {
 }
 
 .ctn-graphic {
-  background-color: #FFF;
+  background-color: #fff;
   position: relative;
 
   margin-top: 3vh;
@@ -37,7 +37,7 @@ body {
 }
 
 .ctn-form {
-  background-color: #FFF;
+  background-color: #fff;
   margin-top: 3vh;
   padding: 14px;
   box-sizing: border-box;
@@ -60,6 +60,14 @@ body {
 .header-values {
   display: flex;
   justify-content: center;
+  margin: 0;
+}
+
+.header-values > div {
+  display: grid;
+}
+p {
+  margin: 0;
 }
 
 @media (max-width: 1558px) {
@@ -71,7 +79,6 @@ body {
   .ctn-graphic {
     width: 800px;
   }
-
 }
 
 @media (max-width: 1383px) {
@@ -104,7 +111,7 @@ body {
   }
 
   .ctn-graphic {
-    width: 100%
+    width: 100%;
   }
 
   .ctn-form {
@@ -124,7 +131,9 @@ body {
 
 @media (max-width: 682px) {
   .ctn-header {
-    height: 16vh;
+    display: grid;
+    height: 22vh;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -133,11 +142,19 @@ body {
     display: grid;
     justify-content: center;
   }
+  .ctn-header {
+    display: grid;
+    height: 22vh;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2px;
+  }
 }
 
 @media (max-width: 380px) {
   .ctn-header {
-    height: 20vh;
+    display: grid;
+    height: 28vh;
+    grid-template-columns: repeat(2, 1fr);
     padding: 2px;
   }
 }

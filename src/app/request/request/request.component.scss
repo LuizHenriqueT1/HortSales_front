@@ -55,6 +55,7 @@ tbody  {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 384px;
 }
 
 @media screen and (max-width: 1072px) {

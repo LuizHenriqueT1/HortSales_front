@@ -1,7 +1,11 @@
-<div *ngIf="chartData$ | async as data" >
+<div *ngIf="chartData$ | async as data; else loading" >
   <canvas baseChart
       type="line"
       [data]="data"
       [options]="config">
   </canvas>
 </div>
+
+<ng-template #loading>
+  <app-loader></app-loader>
+</ng-template>

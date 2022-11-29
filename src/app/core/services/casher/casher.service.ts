@@ -48,6 +48,6 @@ export class CasherService {
   }
 
   findVendasUltimosDozeMeses(): Observable<number> {
-    return this.http.get<number>(`${this.casherUrl}/totalVendasMes-ultimos-doseMeses`)
+    return this.http.get<number>(`${this.casherUrl}/faturamentos-ultimos-doze-meses`)
   }
 }

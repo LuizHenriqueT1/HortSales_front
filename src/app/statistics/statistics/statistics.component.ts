@@ -1,5 +1,6 @@
+import { RequestService } from 'src/app/core/services/request/request.service';
 import { ChartData } from 'chart.js';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { CasherService } from './../../core/services/casher/casher.service';
 import { FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -16,12 +17,14 @@ export class StatisticsComponent implements OnInit {
   resultVendasUltimosSeteDias$: any;
   resultVendasUltimosTrintaDias$: any;
   resultMediaDiariaMesAnterior$: any;
+  produtoMaisPedidoUltimosTrintaDias$: any;
 
   vendasUltimosDozeMeses$!: Observable<ChartData>;
 
   constructor(
     private fb: FormBuilder,
     private casher: CasherService,
+    private requestService: RequestService,
     private router: Router
   ) {}
 
@@ -107,14 +110,13 @@ export class StatisticsComponent implements OnInit {
   }
 
   arrayFaturamentosUltimosDozeMeses = this.faturamentosUltimosDozeMeses();
-  data!: Observable<ChartData>;
   chart(): Observable<ChartData> {
-    this.data = new Observable<ChartData>((observer) => {
+    return new Observable<ChartData>((observer) => {
       observer.next({
         labels: this.labels(),
         datasets: [
           {
-            label: 'Faturamento',
+            label: 'Faturamentos',
             data: this.arrayFaturamentosUltimosDozeMeses,
             backgroundColor: '#024d01',
             borderColor: '#027a00',
@@ -123,8 +125,10 @@ export class StatisticsComponent implements OnInit {
         ],
       });
     });
-    return this.data;
   }
+
+  showChart: Observable<ChartData> = this.chart();
+  loadingChart: any;
 
   ngOnInit(): void {
     this.casher.findVendasUltimosSeteDias().subscribe((res) => {
@@ -136,10 +140,33 @@ export class StatisticsComponent implements OnInit {
     this.casher.findMediaDiariaMesAnterior().subscribe((res) => {
       this.resultMediaDiariaMesAnterior$ = res;
     });
+
+    let arrayProdutoMaisPedidosUltimosTrintaDias: any;
+    let value: string;
+    this.requestService
+      .findProdutoMaisPedidosUltimosTrintaDias()
+      .pipe(
+        map((x: any) => {
+          arrayProdutoMaisPedidosUltimosTrintaDias = x;
+          arrayProdutoMaisPedidosUltimosTrintaDias.map((res: string) => {
+            value = res[0];
+            value = value.replace(/(^\w)/g, (letra) => letra.toUpperCase());
+            this.produtoMaisPedidoUltimosTrintaDias$ = value;
+          });
+        })
+      )
+      .subscribe();
+
+    setTimeout(() => {
+      this.loadingChart = this.showChart;
+    }, 500);
   }
 
   showValue(value: any) {
-    let showValue = value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});;
+    let showValue = value?.toLocaleString('pt-br', {
+      style: 'currency',
+      currency: 'BRL',
+    });
     return showValue;
   }
 }

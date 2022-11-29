@@ -9,7 +9,7 @@ import { ChartConfiguration, ChartData } from 'chart.js';
 })
 export class DashboardComponent implements OnInit {
 
-  @Input('dados') chartData$!:  Observable<ChartData>;
+  @Input('dados') chartData$!:  Observable<ChartData | { labels: string[]; datasets: { data: number[]; label: string;}[]; }>;
   @Input('typeChart') typeChart: any;
   @Input('labels') labels: any;
 
