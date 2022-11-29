@@ -1,3 +1,4 @@
+import { NgxMaskModule } from 'ngx-mask';
 import { ReactiveFormsModule, FormBuilder, FormsModule } from '@angular/forms';
 import { StatisticsComponent } from './statistics.component';
 import { NgModule } from '@angular/core';
@@ -22,7 +23,8 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    NgChartsModule
+    NgChartsModule,
+    NgxMaskModule
   ]
 })
 export class StatisticsModule { }

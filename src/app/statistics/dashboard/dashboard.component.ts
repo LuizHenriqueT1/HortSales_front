@@ -25,8 +25,8 @@ export class DashboardComponent implements OnInit {
       y: {
         ticks: {
           callback: function(value: any) {
-            let finalValue = value.toFixed(2);
-            return 'R$' + finalValue.replace('.', ',');
+            let finalValue = value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});;
+            return finalValue;
           }
         }
       },

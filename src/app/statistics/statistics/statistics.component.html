@@ -12,19 +12,19 @@ matTooltip="Voltar para Home"
   <h1 class="title">Estatísticas</h1>
   <header class="ctn-header">
     <div>
-      <h4 class="header-values" style="color: #00532b;">R$: {{ resultVendasUltimosSeteDias$ }}
+      <h4 class="header-values" style="color: #00532b;">{{ showValue(resultVendasUltimosSeteDias$) }}
 
       </h4>
       <p style="color: #ABABAB; padding: 3px; text-align: center;">vendas nos últimos 7 dias</p>
     </div>
     <div>
-      <h4 class="header-values" style="color: #A630C3;">R$: {{ resultVendasUltimosTrintaDias$ }}
+      <h4 class="header-values" style="color: #A630C3;">{{ showValue(resultVendasUltimosTrintaDias$) }}
 
       </h4>
       <p style="color: #ABABAB; padding: 3px; text-align: center;">vendas nos últimos 30 dias</p>
     </div>
     <div>
-      <h4 class="header-values" style="color: #27A7EF;">R$: {{ resultMediaDiariaMesAnterior$ }}
+      <h4 class="header-values" style="color: #27A7EF;">{{ showValue(resultMediaDiariaMesAnterior$) }}
 
       </h4>
       <p style="color: #ABABAB; padding: 3px; text-align: center;">média de vendas diárias no último mês</p>
@@ -50,7 +50,7 @@ matTooltip="Voltar para Home"
             <input matInput formControlName="ano" type="number" />
           </mat-form-field>
         </div>
-        <p *ngIf="findMediaLucroMes$ !null" style="color: #020500;">Valor da média de lucros R$: {{ findMediaLucroMes$ }}</p>
+        <p *ngIf="findMediaLucroMes$ !null" style="color: #020500;">Valor da média de lucros R$: {{ showValue(findMediaLucroMes$) }}</p>
         <button mat-raised-button color="primary" class="button-calculate">
           <mat-icon>search</mat-icon>
         </button>
@@ -60,14 +60,14 @@ matTooltip="Voltar para Home"
         <div class="ctn-calculate">
           <mat-form-field appearance="outline" style="margin-right: 3px">
             <mat-label>Mês da soma</mat-label>
-            <input matInput formControlName="mes" type="number" />
+            <input matInput formControlName="mes" type="number"/>
           </mat-form-field>
           <mat-form-field appearance="outline">
             <mat-label>Ano da soma</mat-label>
             <input matInput formControlName="ano" type="number" />
           </mat-form-field>
         </div>
-        <p *ngIf="findSomaLucroMes$ !null" style="color: #020500;">Valor de lucros R$: {{ findSomaLucroMes$ }}</p>
+        <p *ngIf="findSomaLucroMes$ !null" style="color: #020500;">Valor de lucros {{ showValue(findSomaLucroMes$) }}</p>
         <button mat-raised-button color="primary" class="button-calculate">
           <mat-icon>search</mat-icon>
         </button>
