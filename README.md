@@ -1,27 +1,30 @@
-# Hortsales
+# Hortsales Hortifruti
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+Essa é uma aplicação para administração de um hortifruti 
 
-## Development server
+#### Com as seguintes funcionalidades:
+  - Página de login
+  - Adicionar lucro do dia 
+  - Listagem de faturamentos
+  - Fazer pedido de produtos para o hortifruti
+  - Página para ver estatísticas do hortifruti e gráfico para ver últimos faturamentos
+  - Adicionar funcionários
+  - Listagem de Funcionários
+  
+ #### Técnologias usadas no projeto:
+  - Angular com Typescript (front-end) | version (13.3.9)
+  - Spring Boot com Java (back-end) | version (java 16)-(Spring Boot 2.3.12)
+  - MySQL (banco de dados relacional)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+#### Serviços usados 
+  - Github
+  - AWS(cloud)
+  
+## Como Usar
 
-## Code scaffolding
+1- Primeiro precisamos logar com email e senha
+  ![Página de login].(https://github.com/LuizHenriqueT1/HortSales_front/blob/main/src/assets/readme/login.png)
+  
+  
+  
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
