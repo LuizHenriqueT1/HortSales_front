@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { typeArrayRequest, typeListRequest } from './../../models/request';
 import { Injectable } from '@angular/core';
@@ -15,5 +16,9 @@ export class RequestService {
 
   create(requests: typeListRequest) {
     return this.http.post<typeListRequest>(this.requestUrl, requests);
+  }
+
+  findProdutoMaisPedidosUltimosTrintaDias(): Observable<any> {
+    return this.http.get<any>(`${this.requestUrl}/produto-mais-pedido-ultimos-trintadias`)
   }
 }

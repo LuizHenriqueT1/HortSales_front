@@ -11,35 +11,42 @@ matTooltip="Voltar para Home"
 <body>
   <h1 class="title">Estatísticas</h1>
   <header class="ctn-header">
-    <div>
+    <div style="display: grid;">
       <h4 class="header-values" style="color: #00532b;">{{ showValue(resultVendasUltimosSeteDias$) }}
 
       </h4>
       <p style="color: #ABABAB; padding: 3px; text-align: center;">vendas nos últimos 7 dias</p>
     </div>
-    <div>
+    <div style="display: grid;">
       <h4 class="header-values" style="color: #A630C3;">{{ showValue(resultVendasUltimosTrintaDias$) }}
 
       </h4>
       <p style="color: #ABABAB; padding: 3px; text-align: center;">vendas nos últimos 30 dias</p>
     </div>
-    <div>
+    <div style="display: grid;">
       <h4 class="header-values" style="color: #27A7EF;">{{ showValue(resultMediaDiariaMesAnterior$) }}
 
       </h4>
       <p style="color: #ABABAB; padding: 3px; text-align: center;">média de vendas diárias no último mês</p>
     </div>
+
+    <div style="display: grid;">
+      <h4 class="header-values" style="color: #ef9f27;">{{ produtoMaisPedidoUltimosTrintaDias$ }}
+
+      </h4>
+      <p style="color: #ABABAB; padding: 3px; text-align: center;">produto mais pedido nos últimos trinta dias</p>
+    </div>
   </header>
 
   <section class="ctn-section">
-    <div class="ctn-graphic">
+    <div class="ctn-graphic" *ngIf="loadingChart | async; else loading">
       <app-dashboard class="canvas"
-      [dados]="chart()"
+      [dados]="showChart"
       ></app-dashboard>
     </div>
     <div class="ctn-form">
       <form [formGroup]="mediaForm" (ngSubmit)="onSubmitMediaMes()" class="form">
-        <h3 class="title-form">Pesquisar média de lucros</h3>
+        <h3 class="title-form">Pesquisar média de faturamentos do mês</h3>
         <div class="ctn-calculate">
           <mat-form-field appearance="outline" style="margin-right: 3px">
             <mat-label>Mês da media</mat-label>
@@ -50,24 +57,24 @@ matTooltip="Voltar para Home"
             <input matInput formControlName="ano" type="number" />
           </mat-form-field>
         </div>
-        <p *ngIf="findMediaLucroMes$ !null" style="color: #020500;">Valor da média de lucros R$: {{ showValue(findMediaLucroMes$) }}</p>
+        <p *ngIf="findMediaLucroMes$ !null" style="color: #020500;">Valor da média de lucros {{ showValue(findMediaLucroMes$) }}</p>
         <button mat-raised-button color="primary" class="button-calculate">
           <mat-icon>search</mat-icon>
         </button>
       </form>
       <form [formGroup]="somaLucroMesForm" (ngSubmit)="onSubmitSomaLucroMes()" class="form">
-        <h3 class="title-form">Pesquisar total de lucros</h3>
+        <h3 class="title-form">Pesquisar faturamento</h3>
         <div class="ctn-calculate">
           <mat-form-field appearance="outline" style="margin-right: 3px">
-            <mat-label>Mês da soma</mat-label>
+            <mat-label>Mês do faturamento</mat-label>
             <input matInput formControlName="mes" type="number"/>
           </mat-form-field>
           <mat-form-field appearance="outline">
-            <mat-label>Ano da soma</mat-label>
+            <mat-label>Ano do faturamento</mat-label>
             <input matInput formControlName="ano" type="number" />
           </mat-form-field>
         </div>
-        <p *ngIf="findSomaLucroMes$ !null" style="color: #020500;">Valor de lucros {{ showValue(findSomaLucroMes$) }}</p>
+        <p *ngIf="findSomaLucroMes$ !null" style="color: #020500;">Valor do faturamento {{ showValue(findSomaLucroMes$) }}</p>
         <button mat-raised-button color="primary" class="button-calculate">
           <mat-icon>search</mat-icon>
         </button>
@@ -76,3 +83,7 @@ matTooltip="Voltar para Home"
     </div>
   </section>
 </body>
+
+<ng-template #loading>
+  <app-loader></app-loader>
+</ng-template>
