@@ -75,9 +75,9 @@ export class CasherComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  showLucroDisplay() {
-    let lucro = this.showLucro.toFixed(2);
-            return lucro.replace('.', ',');
+  showValue(value: any) {
+    let showValue = value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});;
+    return showValue;
   }
 
   ngOnInit(): void {}

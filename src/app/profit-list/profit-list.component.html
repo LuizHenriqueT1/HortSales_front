@@ -35,7 +35,7 @@
       >
       <ng-container matColumnDef="lucroDia">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number" >Valor do lucro</th>
-        <td mat-cell *matCellDef="let profit" >R$: {{  profit.lucroDia }}</td>
+        <td mat-cell *matCellDef="let profit" >{{  showValue(profit.lucroDia) }}</td>
         </ng-container
       >
 

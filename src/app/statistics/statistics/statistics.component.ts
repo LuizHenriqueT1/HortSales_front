@@ -137,4 +137,9 @@ export class StatisticsComponent implements OnInit {
       this.resultMediaDiariaMesAnterior$ = res;
     });
   }
+
+  showValue(value: any) {
+    let showValue = value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});;
+    return showValue;
+  }
 }

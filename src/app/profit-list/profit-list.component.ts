@@ -62,4 +62,9 @@ export class ProfitListComponent implements OnInit {
       this._liveAnnouncer.announce('Sorteado sem ordenação');
     }
   }
+
+  showValue(value: any) {
+    let showValue = value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});;
+    return showValue;
+  }
 }
