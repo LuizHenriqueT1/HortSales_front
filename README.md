@@ -37,13 +37,13 @@ Essa é uma aplicação para administração de um hortifruti
 #### 5- Aqui está a lista de faturamentos,podemos pesquisar por data ou valor
   ![LstaDeFaturamentos](https://github.com/LuizHenriqueT1/HortSales_front/blob/main/src/assets/readme/listaDeFaturamentos.png)
   
-#### 6- Aqui podemos detalhes financeiros do hortifruti
+#### 6- Aqui podemos ver detalhes financeiros do hortifruti
   ![Estatisticas](https://github.com/LuizHenriqueT1/HortSales_front/blob/main/src/assets/readme/estatisticas.png)
   
 #### 7- Aqui podemos visualizar detalhes dos funcionários 
   ![ListaDeFuncionarios](https://github.com/LuizHenriqueT1/HortSales_front/blob/main/src/assets/readme/listaDeFuncionarios.png)
 
-#### 8- Aqui podemos adicionar funcionário
+#### 8- Aqui adicionamos o funcionário
   ![AddFuncionario](https://github.com/LuizHenriqueT1/HortSales_front/blob/main/src/assets/readme/addFuncionario.png)
   
 ## Links
