@@ -44,7 +44,7 @@ Essa é uma aplicação para administração de um hortifruti
   ![ListaDeFuncionarios](https://github.com/LuizHenriqueT1/HortSales_front/blob/main/src/assets/readme/listaDeFuncionarios.png)
 
 #### 8- Aqui podemos adicionar funcionário
-  ![AddFuncionario](https://github.com/LuizHenriqueT1/HortSales_front/blob/main/src/assets/readme/listaDeFuncionarios.png)
+  ![AddFuncionario](https://github.com/LuizHenriqueT1/HortSales_front/blob/main/src/assets/readme/addFuncionario.png)
   
 ## Links
   - Repositório do back-end: https://github.com/LuizHenriqueT1/HortSales_Back-end
@@ -52,6 +52,6 @@ Essa é uma aplicação para administração de um hortifruti
 ## Autores
   - Luiz Henrique Soares Silva
 
-Siga o github e bora codar 🧑‍💻! Obrigado por me visitar 💚! 
+    Siga o github e bora codar 🧑‍💻! Obrigado por me visitar 💚! 
   
   
