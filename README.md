@@ -1,4 +1,4 @@
-# Hortsales Hortifruti
+# Hortsales "Hortifruti"
 
 Essa é uma aplicação para administração de um hortifruti 
 
